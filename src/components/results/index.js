@@ -1,12 +1,14 @@
-import React from 'react';
-import "./result.scss"
+import React from "react";
+import ReactJson from "react-json-view";
+import "./result.scss";
+import Loading from "../loading/Loading";
 
-function Results(data){
+const Results = (props) => {
   return (
-    <section className="result">
-      <pre>{data ? JSON.stringify(data, undefined, 2) : null}</pre>
-    </section>
+    <div className="result">
+      {props.data ? <ReactJson src={props.data} /> : <Loading />}
+    </div>
   );
-}
+};
 
 export default Results;

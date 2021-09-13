@@ -16,8 +16,10 @@ class App extends React.Component {
     this.state = {
       data: null,
       requestParams: {},
+  
     };
   }
+
 
   callApi = (requestParams) => {
     // mock output
