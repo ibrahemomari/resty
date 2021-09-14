@@ -17,7 +17,7 @@
 
 [CodeSandbox phase 2](https://codesandbox.io/s/flamboyant-taussig-puip2)
 
-[CodeSandbox phase 3]()
+[CodeSandbox phase 3](https://z4jxc.csb.app/)
 
 ---
 Install Dependences
