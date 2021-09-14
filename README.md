@@ -5,10 +5,6 @@
 
 [Pull Request 2](https://github.com/ibrahemomari/resty/pull/2)
 
----
-
-[Pull Request 3](https://github.com/ibrahemomari/resty/pull/2)
-
 [Pull Request 3](https://github.com/ibrahemomari/resty/pull/3)
 
 ---
