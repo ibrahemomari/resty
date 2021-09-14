@@ -1,7 +1,11 @@
 # resty
 
 ---
-[Pull Request](https://github.com/ibrahemomari/resty/pull/1)
+[Pull Request 1](https://github.com/ibrahemomari/resty/pull/1)
+
+[Pull Request 1](https://github.com/ibrahemomari/resty/pull/2)
+
+---
 
 [CodeSandbox phase 1](https://codesandbox.io/s/funny-night-fbexd?file=/src/App.js)
 
