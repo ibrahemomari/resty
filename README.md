@@ -3,7 +3,7 @@
 ---
 [Pull Request 1](https://github.com/ibrahemomari/resty/pull/1)
 
-[Pull Request 1](https://github.com/ibrahemomari/resty/pull/2)
+[Pull Request 2](https://github.com/ibrahemomari/resty/pull/2)
 
 ---
 
