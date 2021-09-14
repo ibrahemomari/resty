@@ -1,42 +1,53 @@
 import { useState } from "react";
-import axios from "axios";
 import "./form.scss";
 
 function Form(props) {
-  const [textArea, setTextArea] = useState(false);
-  const [method, setMethod] = useState("get");
-  const [URL, setURL] = useState("");
+  const [url, setUrl] = useState("");
   const [request, setRequest] = useState("");
+  const [method, setMethod] = useState("get");
+  const [textArea, setTextArea] = useState(false);
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const formData = await axios({
+      const data = {
         method: method,
-        url: URL,
-      });
-      props.handleApiCall(formData, request);
+        url: url,
+        request,
+      };
+      await props.handleApiCall(data);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  const URLHandler = (e) => {
-    setURL(e.target.value);
+  const handleURL = (e) => {
+    setUrl(e.target.value);
   };
 
-  const methodHandler = (e) => {
-    setMethod(e.target.id);
+  const handleRequest = (e) => {
+    let data = JSON.parse(e.target.value);
+    setRequest(data);
+  };
+
+  const handleGet = (e) => {
+    setMethod("get");
     setTextArea(false);
   };
 
-  const textAreaHandler = (e) => {
+  const handlePost = (e) => {
+    setMethod("post");
     setTextArea(true);
-    setMethod(e.target.id);
   };
 
-  const requestHandler = (e) => {
-    setRequest(e.target.value);
+  const handlePut = (e) => {
+    setMethod("put");
+    setTextArea(true);
+  };
+
+  const handleDelete = (e) => {
+    setMethod("delete");
+    setTextArea(false);
   };
 
   return (
@@ -44,25 +55,27 @@ function Form(props) {
       <form onSubmit={handleSubmit}>
         <label>
           <span>URL: </span>
-          <input name="url" type="text" onChange={URLHandler} />
-          <button type="submit"  data-testid="submit">GO!</button>
+          <input name="url" type="text" onChange={handleURL} />
+          <button type="submit" data-testid="submit">
+            GO!
+          </button>
         </label>
         <label className="methods">
-          <span id="get" onClick={methodHandler}>
+          <span id="get" onClick={handleGet}>
             GET
           </span>
-          <span id="post" onClick={textAreaHandler}>
+          <span id="post" onClick={handlePost}>
             POST
           </span>
-          <span id="put" onClick={textAreaHandler}>
+          <span id="put" onClick={handlePut}>
             PUT
           </span>
-          <span id="delete" onClick={methodHandler}>
+          <span id="delete" onClick={handleDelete}>
             DELETE
           </span>
         </label>
         {textArea && (
-          <textarea rows="15" cols="35" onChange={requestHandler}></textarea>
+          <textarea rows="15" cols="35" onChange={handleRequest}></textarea>
         )}
       </form>
     </>
