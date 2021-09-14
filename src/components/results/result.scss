@@ -1,4 +1,4 @@
-.result{
+.result {
     position: absolute;
     background-color: rgb(255, 255, 255);
     top: 20%;
@@ -6,6 +6,29 @@
     width: 30rem;
     height: 25rem;
     overflow: scroll;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 5px;
+    box-shadow: 0 0 15px black;
+    border-radius: 0.5rem;
+
+    .result-titles h2{
+        text-decoration: underline;
+        
+    }
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+    border-radius: 2rem;
+
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(160, 157, 157);
+    border-radius: 2rem;
+
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(255, 255, 255);
 }
