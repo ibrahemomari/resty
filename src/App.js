@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 
 import "./app.scss";
 import axios from "axios";
@@ -6,11 +6,19 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Form from "./components/form";
 import Results from "./components/results";
+import History from "./components/history/index";
+import {
+  initialState,
+  historyReducer,
+  addAction,
+} from "./components/history/Reducer";
 
 function App(props) {
   const [data, setData] = useState(null);
   const [requestParams, setRequestParams] = useState({});
   const [body, setbody] = useState("");
+  const [state, dispatch] = useReducer(historyReducer, initialState);
+
   // const [state,]
   useEffect(() => {
     try {
@@ -22,7 +30,7 @@ function App(props) {
             data: body,
           });
           setData(response);
-          
+          dispatch(addAction(requestParams));
         }
       }
       getData();
@@ -46,6 +54,7 @@ function App(props) {
       };
       setData({ response });
       setRequestParams(data);
+      dispatch(addAction(data));
     }
   }
 
@@ -61,6 +70,7 @@ function App(props) {
         </div>
       </div>
       <Form handleApiCall={callApi} />
+      {<History history={state.history} handleApiCalls={callApi}/>}
       <Results data={data} />
       <Footer />
     </React.Fragment>

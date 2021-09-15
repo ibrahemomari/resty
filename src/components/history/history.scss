@@ -1,0 +1,25 @@
+.history-container{
+    background-color: rgb(223, 223, 223);
+    width: 40%;
+    margin: 1rem 1.5rem;
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 8px black;
+    h3{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    button{
+        background-color: black;
+        color: white;
+        padding: .5rem;
+        float: right;
+        margin-top: -1rem;
+        cursor: pointer;
+        box-shadow: 0 0 8px black;
+    }
+    button:hover{
+        background-color: white;
+        color: black;
+    }
+}
